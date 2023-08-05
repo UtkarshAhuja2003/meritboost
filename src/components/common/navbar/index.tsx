@@ -15,12 +15,12 @@ const Navbar = () => {
   let [open, setOpen] = useState(false);
   
   return (
-    <section id="navbar" className="z-50 shadow-md w-full top-0 left-0">
+    <section id="navbar" className="font-font z-50 shadow-md w-full top-0 left-0">
       <div className="md:flex items-center justify-between bg-theme py-4 xl:px-16 px-6 md:px-14">
         <div className="cursor-pointer">
           <Link to ="/">
           <div
-            className="w-[210px] md:w-[230px] xl:w-[300px] h-auto"
+            className="w-[210px] md:w-[230px] xl:w-[300px] h-auto font-bold text-[26px] md:text-[42px]"
           >Lakshita Ahuja</div>
           </Link>
         </div>
