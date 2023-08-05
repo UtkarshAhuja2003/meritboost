@@ -19,11 +19,9 @@ const Navbar = () => {
       <div className="md:flex items-center justify-between bg-theme py-4 xl:px-16 px-6 md:px-14">
         <div className="cursor-pointer">
           <Link to ="/">
-          <img
+          <div
             className="w-[210px] md:w-[230px] xl:w-[300px] h-auto"
-            src={Logo}
-            alt="Logo"
-          />
+          >Lakshita Ahuja</div>
           </Link>
         </div>
         <div

@@ -6,7 +6,7 @@ import { advantage } from "../../../config/advantage"
 const Advantage = () => {
   return (
     <div className="bg-bgalt my-28 font-font py-8" id="whyus">
-        <center className="font-bold text-[18px] md:text-[25px] tracking-wide md:mt-2">TeachMe Advantage</center>
+        <center className="font-bold text-[18px] md:text-[25px] tracking-wide md:mt-2">Advantages</center>
         <div className="md:flex w-[80%] mx-auto justify-around mt-4">
           {
               advantage.map((item, index) =>
