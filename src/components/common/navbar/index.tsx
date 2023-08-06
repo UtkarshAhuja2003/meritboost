@@ -54,7 +54,7 @@ const Navbar = () => {
             </li>
           ))}
           
-          <div >
+          {/* <div >
             
           <button type="button"
           style={{
@@ -68,7 +68,7 @@ const Navbar = () => {
           Book a FREE Trial
             </div>
         </button>
-            </div>
+            </div> */}
         </ul>
       </div>
     </section>

@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { PiPhoneCallBold } from "react-icons/pi";
+import { MdEmail } from "react-icons/md";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer className="bg-bgalt font-font py-8 text-center" id='contact'>
+      <div className="mb-2">
+        <PiPhoneCallBold className="inline-block mr-2 text-2xl" />
+        Contact Number: <a href="https://wa.me/918851738840" className="text-blue-500" target="_blank" rel="noopener noreferrer">8851738840 (WhatsApp Only)</a>
+      </div>
+      <div>
+      <MdEmail className="inline-block mr-2 text-2xl" />
+        Email Address: <a href="mailto:lakshitaahuja656@gmail.com" className="text-blue-500">lakshitaahuja656@gmail.com</a>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
