@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className="bg-bgalt font-font py-8 text-center" id='contact'>
       <div className="mb-2">
         <PiPhoneCallBold className="inline-block mr-2 text-2xl" />
-        Contact Number: <a href="https://wa.me/918851738840" className="text-blue-500" target="_blank" rel="noopener noreferrer">8851738840 (WhatsApp Only)</a>
+        Contact Number: <a href="https://wa.me/918851738440" className="text-blue-500" target="_blank" rel="noopener noreferrer">8851738440 (WhatsApp Only)</a>
       </div>
       <div>
       <MdEmail className="inline-block mr-2 text-2xl" />
