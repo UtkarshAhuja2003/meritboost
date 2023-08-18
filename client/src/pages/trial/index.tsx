@@ -48,7 +48,7 @@ const Trial = () => {
   const [date,setDate]=useState(JSON.stringify(dateDetails[0]));
   const [time,setTime]=useState("8:00 AM");
   const [phone, setPhone] = useState("");
-  const [selectedCountryCode, setSelectedCountryCode] = useState("IN");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("US");
   const selectedCountry = Countries.find(country => country.code === selectedCountryCode);
 
   const handleCountryChange = (event:any) => {
@@ -143,34 +143,35 @@ const postData = async () => {
   
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="font-font my-12">
         <div className="md:w-[88%] mx-auto rounded-[15px]">
             <center className="font-bold text-[15px] md:text-[25px] tracking-wide md:mt-2">Book a Free Trial</center>
             <div className="md:w-[70%] mx-auto mt-4">
             <div className="md:flex">
-            <div className="w-[80%] flex mx-auto my-4 pb-4">
+            <div className="md:w-[60%] w-[80%] mx-auto my-4 pb-4">
               <div className="mt-2 md:mt-4 mr-4 md:text-[17px]">Email<span className="text-red-600">*</span></div>
               <input type="text" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter your Email" className="mt-2 h-[34px] md:h-[40px] md:mt-4 p-1 border border-gray-300 rounded" name="email" required/>
             </div>
-            <div className="w-[80%] flex mx-auto my-4 pb-4">
-            <div>
+            <div className="w-[80%] flex mx-auto my-2 pb-4">
+            <div className="md:mt-4">
       <label className="mt-2 md:mt-4 mr-4 md:text-[17px]" htmlFor="countrySelect">Phone Number<span className="text-red-600">*</span></label>
       <div className="flex">
       <select
-        id="countrySelect"
-        className="mt-2 md:mt-4 p-1 border border-gray-300 rounded"
-        value={selectedCountryCode}
-        name="country"
-        onChange={handleCountryChange}
-      >
-        <option className="w-[10px]" value="">Select a country</option>
-        {Countries.map((country) => (
-          <option className="w-[10px]" key={country.code} value={country.code}>
-            {country.label}
-          </option>
-        ))}
-      </select>
+          id="countrySelect"
+          className="mt-2 w-20 md:w-[130px] md:mt-4 p-1 border border-gray-300 rounded"
+          value={selectedCountryCode}
+          name="country"
+          onChange={handleCountryChange}
+        >
+          <option value="">Select a country</option>
+          {Countries.map((country) => (
+            <option key={country.code} value={country.code}>
+              {country.label}
+            </option>
+          ))}
+        </select>
+
       <input
         className="mt-2 md:mt-4 p-1 border border-gray-300 rounded"
         type="text"
@@ -183,7 +184,7 @@ const postData = async () => {
     </div>
             </div>
             </div>
-            <div className="w-[80%] flex mx-auto my-4 pb-4">
+            <div className="w-[80%] md:w-full flex mx-auto my-4 pb-4">
             <div className=" mt-2 md:mt-4 mr-4 md:text-[17px]">Name<span className="text-red-600">*</span></div>
               <input type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter your Name" className="mt-2 md:mt-4 p-1 border border-gray-300 rounded" name="name" required/>
             </div>

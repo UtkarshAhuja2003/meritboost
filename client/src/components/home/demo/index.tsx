@@ -1,4 +1,5 @@
 import { FaCalendarAlt } from "react-icons/fa";
+import {Link} from "react-router-dom"
 
 const Demo = () => {
   return (
@@ -7,6 +8,7 @@ const Demo = () => {
             Book your <span  style={{ textShadow: '0px 4px 4px rgba(0, 0, 0, 0.35)' }}>Free Demo</span> session NOW!!
         </center>
         <div className="mt-6 md:ml-[36%] ml-[26%]">
+        <Link to="/free-trial">
         <button type="button"
           style={{
             boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
@@ -18,7 +20,7 @@ const Demo = () => {
             <FaCalendarAlt className="text-[20px] xl:text-[23px]" />
           Book a FREE Trial
             </div>
-        </button>
+        </button></Link>
         </div>
     </div>
   )
