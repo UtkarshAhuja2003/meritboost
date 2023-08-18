@@ -26,6 +26,14 @@ const trialSchema = new mongoose.Schema({
     time:{
         type:String,
         required:[true, "Time is required"]
+    },
+    phone:{
+        type:String,
+        required:[true, "Phone is required"]
+    },
+    country:{
+        type:String,
+        required:[true, "Country is required"]
     }
 })
 const Trial= mongoose.model("Trial",trialSchema);

@@ -2,12 +2,14 @@ import Navbar from "../../components/common/navbar"
 import { LuGraduationCap } from "react-icons/lu";
 import { BiCalendarAlt } from "react-icons/bi";
 import { FiClock } from "react-icons/fi";
+import {AiFillCaretDown} from "react-icons/ai"
 import Footer from "../../components/common/footer"
 import Science from "../../assets/science.png"
 import Math from "../../assets/math.png"
 import { useState } from "react";
 import Schema from "../../schema/trial"
 import { useNavigate } from "react-router-dom";
+import Countries from "../../config/countries.json"
 
 const Trial = () => {
   const navigate=useNavigate()
@@ -45,7 +47,19 @@ const Trial = () => {
   const [grade,setGrade]=useState(6);
   const [date,setDate]=useState(JSON.stringify(dateDetails[0]));
   const [time,setTime]=useState("8:00 AM");
+  const [phone, setPhone] = useState("");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("IN");
+  const selectedCountry = Countries.find(country => country.code === selectedCountryCode);
 
+  const handleCountryChange = (event:any) => {
+    const newSelectedCountryCode = event.target.value;
+    const newSelectedCountry = Countries.find(country => country.code === newSelectedCountryCode);
+
+    if (newSelectedCountry) {
+      setSelectedCountryCode(newSelectedCountryCode);
+      setPhone('');
+    }
+  };
 
   const grades = [3, 4, 5, 6, 7, 8];
   const timeSlots = [
@@ -57,28 +71,42 @@ const Trial = () => {
   const checkInputs = async () => {
     try {
       await Schema.validate({ name, email }); // Validate using the schema
+  
       if (name.trim() === '') {
         alert('Please enter your name');
         return false;
       } else if (email.trim() === '') {
         alert('Please enter your email');
         return false;
+      } else if (selectedCountry) {
+        if (phone.trim() === '') {
+          alert('Please enter your phone number');
+          return false;
+        } else if (phone.length !== selectedCountry.phoneLength) {
+          alert(`Phone number length for ${selectedCountry.label} should be ${selectedCountry.phoneLength} digits`);
+          return false;
+        } else {
+          return true;
+        }
       } else {
-        return true;
+        alert('Please select a country');
+        return false;
       }
-    } catch (validationError: any) {
+    } catch (validationError:any) {
       // Handle Yup validation errors
-     alert(validationError.errors);
+      alert(validationError.errors);
       return false;
     }
   };
   
+
 const postData = async () => {
     const inputsValid = await checkInputs();
-  
     if (inputsValid) {
       try {
-        const response = await fetch('https://backend-lakshitaahuja.onrender.com/trial/new', {
+        const country=JSON.stringify(selectedCountry);
+        console.log(country)
+        const response = await fetch('http://localhost:5000/trial/new', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -90,6 +118,8 @@ const postData = async () => {
             subject,
             time,
             date,
+            country,
+            phone
           }),
         });
   
@@ -118,13 +148,44 @@ const postData = async () => {
         <div className="md:w-[88%] mx-auto rounded-[15px]">
             <center className="font-bold text-[15px] md:text-[25px] tracking-wide md:mt-2">Book a Free Trial</center>
             <div className="md:w-[70%] mx-auto mt-4">
+            <div className="md:flex">
             <div className="w-[80%] flex mx-auto my-4 pb-4">
-              <div className=" mt-2 md:mt-4 mr-4 md:text-[17px]">Email<span className="text-red-600">*</span></div>
-              <input type="text" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter your Email" className="md:h-[40px] w-[50%]   md:placeholder:text-[17px] h-[30px] bg-bg border-2 md:border-4 rounded-[15px] mt-2 p-2" name="email" required/>
+              <div className="mt-2 md:mt-4 mr-4 md:text-[17px]">Email<span className="text-red-600">*</span></div>
+              <input type="text" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter your Email" className="mt-2 h-[34px] md:h-[40px] md:mt-4 p-1 border border-gray-300 rounded" name="email" required/>
+            </div>
+            <div className="w-[80%] flex mx-auto my-4 pb-4">
+            <div>
+      <label className="mt-2 md:mt-4 mr-4 md:text-[17px]" htmlFor="countrySelect">Phone Number<span className="text-red-600">*</span></label>
+      <div className="flex">
+      <select
+        id="countrySelect"
+        className="mt-2 md:mt-4 p-1 border border-gray-300 rounded"
+        value={selectedCountryCode}
+        name="country"
+        onChange={handleCountryChange}
+      >
+        <option className="w-[10px]" value="">Select a country</option>
+        {Countries.map((country) => (
+          <option className="w-[10px]" key={country.code} value={country.code}>
+            {country.label}
+          </option>
+        ))}
+      </select>
+      <input
+        className="mt-2 md:mt-4 p-1 border border-gray-300 rounded"
+        type="text"
+        value={phone}
+        name="phone"
+        onChange={(e) => setPhone(e.target.value)}
+        placeholder="Enter Phone Number"
+      />
+      </div>
+    </div>
+            </div>
             </div>
             <div className="w-[80%] flex mx-auto my-4 pb-4">
             <div className=" mt-2 md:mt-4 mr-4 md:text-[17px]">Name<span className="text-red-600">*</span></div>
-              <input type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter your Name" className="md:h-[40px] w-[50%] md:placeholder:text-[17px] h-[30px] bg-bg border-2 md:border-4 rounded-[15px] mt-2 p-2" name="name" required/>
+              <input type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter your Name" className="mt-2 md:mt-4 p-1 border border-gray-300 rounded" name="name" required/>
             </div>
             <div className="rounded-md w-[80%] md:w-[60%] mx-auto my-4 pb-4">
               <div className="flex">
