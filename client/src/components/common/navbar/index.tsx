@@ -4,7 +4,7 @@ import { IoMdClose } from "react-icons/io";
 import Logo from "../../../assets/logo.svg"
 import { Link } from "react-router-dom";
 
-const Navbar = ({Links}) => {
+const Navbar = ({Links,showFreeTrialButton}) => {
 
   let [open, setOpen] = useState(false);
   
@@ -47,7 +47,8 @@ const Navbar = ({Links}) => {
               </a>
             </li>
           ))}
-          
+          {/* Conditionally render the button based on the showFreeTrialButton prop */}
+      {showFreeTrialButton && (
           <div >
             <Link to="/free-trial">
           <button type="button"
@@ -63,7 +64,7 @@ const Navbar = ({Links}) => {
             </div>
         </button>
         </Link>
-            </div>
+            </div>)}
         </ul>
       </div>
     </section>
