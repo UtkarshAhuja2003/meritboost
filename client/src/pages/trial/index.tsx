@@ -138,12 +138,12 @@ const postData = async () => {
       }
     }
   };
-  
+  let Links = [ ];
   
   
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar Links={Links}/>
       <div className="font-font my-12">
         <div className="md:w-[88%] mx-auto rounded-[15px]">
             <center className="font-bold text-[15px] md:text-[25px] tracking-wide md:mt-2">Book a Free Trial</center>
