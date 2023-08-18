@@ -7,11 +7,13 @@ const nodemailer = require("nodemailer");
 // Define a route for creating a new record
 router.post("/trial/new", async (req, res) => {
   try {
-    const { name, email, grade, subject, time, date } = req.body;
+    const { name, email, grade, subject, time, date,phone,country} = req.body;
 
     // Create a new Trial document
     const newTrial = new Trial({
       name,
+      phone,
+      country,
       email,
       grade,
       subject,
@@ -23,7 +25,7 @@ router.post("/trial/new", async (req, res) => {
     await newTrial.save();
 
     // Log the record details
-    console.log(name, email, grade, subject, time, date);
+    console.log(name, email, grade, subject, time, date,phone,country);
 
     // Send an email
     const transporter = nodemailer.createTransport({
@@ -38,7 +40,7 @@ router.post("/trial/new", async (req, res) => {
       from: "ahujalakshita172@gmail.com",
       to:[ "lakshitaahuja656@gmail.com","ahujautkarsh80@gmail.com"],
       subject: "New Trial Class Booked",
-      text: `A new trial record has been created:\n\nName: ${name}\nEmail: ${email}\nGrade: ${grade}\nSubject: ${subject}\nTime: ${time}\nDate: ${date}`,
+      text: `A new trial record has been created:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCountry: ${country}\nGrade: ${grade}\nSubject: ${subject}\nTime: ${time}\nDate: ${date}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

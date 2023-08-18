@@ -8,13 +8,19 @@ import FAQ from '../../components/home/faq'
 import Footer from '../../components/common/footer'
 
 const Home = () => {
+  let Links = [
+    { name: "Why Us", link: "#whyus" },
+    { name: "About", link: "#about" },
+    { name: "Contact Us", link: "#contact" },
+    { name: "FAQ", link: "#faq" },
+  ];
   return (
     <div>
-      <Navbar/>
+      <Navbar Links={Links} showFreeTrialButton={true}/>
       <Head/>
       <Advantage/>
       <About/>
-      {/* <Demo/> */}
+      <Demo/>
       <FAQ/>
       <Footer/>
     </div>

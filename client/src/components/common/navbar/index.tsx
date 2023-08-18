@@ -3,14 +3,16 @@ import { FaBars, FaCalendarAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Logo from "../../../assets/logo.svg"
 import { Link } from "react-router-dom";
+type LinkItem = {
+  name: string;
+  link: string;
+};
 
-const Navbar = () => {
-  let Links = [
-    { name: "Why Us", link: "#whyus" },
-    { name: "About", link: "#about" },
-    { name: "Contact Us", link: "#contact" },
-    { name: "FAQ", link: "#faq" },
-  ];
+type NavbarProps = {
+  Links: LinkItem[];
+  showFreeTrialButton: boolean;
+};
+const Navbar = ({Links,showFreeTrialButton}: NavbarProps) => {
 
   let [open, setOpen] = useState(false);
   
@@ -53,9 +55,10 @@ const Navbar = () => {
               </a>
             </li>
           ))}
-          
-          {/* <div >
-            
+          {/* Conditionally render the button based on the showFreeTrialButton prop */}
+      {showFreeTrialButton && (
+          <div >
+            <Link to="/free-trial">
           <button type="button"
           style={{
             boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
@@ -68,7 +71,8 @@ const Navbar = () => {
           Book a FREE Trial
             </div>
         </button>
-            </div> */}
+        </Link>
+            </div>)}
         </ul>
       </div>
     </section>

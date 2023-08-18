@@ -1,6 +1,7 @@
 import { FaCalendarAlt } from "react-icons/fa"
 import Card from "./Card"
 import { advantage } from "../../../config/advantage"
+import {Link} from "react-router-dom"
 
 
 const Advantage = () => {
@@ -17,7 +18,8 @@ const Advantage = () => {
           )
           }
         </div>
-        {/* <center className="mt-8 mx-auto ">
+        <center className="mt-8 mx-auto ">
+        <Link to="/free-trial">
         <button type="button"
           style={{
             boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
@@ -30,7 +32,8 @@ const Advantage = () => {
           Book a FREE Trial
             </div>
         </button>
-        </center> */}
+        </Link>
+        </center>
     </div>
   )
 }
