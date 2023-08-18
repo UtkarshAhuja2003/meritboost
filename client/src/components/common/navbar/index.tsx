@@ -3,8 +3,16 @@ import { FaBars, FaCalendarAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Logo from "../../../assets/logo.svg"
 import { Link } from "react-router-dom";
+type LinkItem = {
+  name: string;
+  link: string;
+};
 
-const Navbar = ({Links,showFreeTrialButton}) => {
+type NavbarProps = {
+  links: LinkItem[];
+  showFreeTrialButton: boolean;
+};
+const Navbar = ({Links,showFreeTrialButton}: NavbarProps) => {
 
   let [open, setOpen] = useState(false);
   
