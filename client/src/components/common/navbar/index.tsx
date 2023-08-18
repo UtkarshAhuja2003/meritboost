@@ -9,7 +9,7 @@ type LinkItem = {
 };
 
 type NavbarProps = {
-  links: LinkItem[];
+  Links: LinkItem[];
   showFreeTrialButton: boolean;
 };
 const Navbar = ({Links,showFreeTrialButton}: NavbarProps) => {
