@@ -138,7 +138,12 @@ const postData = async () => {
       }
     }
   };
-  let Links = [ ];
+  type LinkItem = {
+  name: string;
+  link: string;
+};
+
+let Links: LinkItem[] = [];
   
   
   return (
