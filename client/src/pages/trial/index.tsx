@@ -78,7 +78,7 @@ const postData = async () => {
   
     if (inputsValid) {
       try {
-        const response = await fetch('http://localhost:5000/trial/new', {
+        const response = await fetch('https://backend-lakshitaahuja.onrender.com/trial/new', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
