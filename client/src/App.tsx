@@ -1,6 +1,6 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/home"
+import Trial from "./pages/trial"
 
 const App = () => {
   return (
@@ -8,6 +8,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/home' element={<Home/>} />
+        <Route path="/free-trial" element={<Trial/>}/>
       </Routes>
     </div>
   );
