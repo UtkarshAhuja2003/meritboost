@@ -4,7 +4,7 @@ import { IoMdClose } from "react-icons/io";
 import Logo from "../../../assets/logo.svg"
 import { Link } from "react-router-dom";
 
-const Navbar = ({links}) => {
+const Navbar = ({Links}) => {
 
   let [open, setOpen] = useState(false);
   
