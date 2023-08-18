@@ -16,7 +16,7 @@ const Home = () => {
   ];
   return (
     <div>
-      <Navbar Links={Links}/>
+      <Navbar Links={Links} showFreeTrialButton={true}/>
       <Head/>
       <Advantage/>
       <About/>
