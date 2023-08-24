@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaCalendarAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import Logo from "../../../assets/logo.svg"
+import Logo from "../../../assets/logo.png"
 import { Link } from "react-router-dom";
 type LinkItem = {
   name: string;
@@ -23,7 +23,7 @@ const Navbar = ({Links,showFreeTrialButton}: NavbarProps) => {
           <Link to ="/">
           <div
             className="w-[210px] md:w-[230px] xl:w-[300px] h-auto font-bold text-[26px] md:text-[42px]"
-          >Lakshita Ahuja</div>
+          ><img src={Logo} alt="MeritBoost" /></div>
           </Link>
         </div>
         <div

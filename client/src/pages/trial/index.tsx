@@ -106,7 +106,7 @@ const postData = async () => {
       try {
         const country=JSON.stringify(selectedCountry);
         console.log(country)
-        const response = await fetch('https://backend-lakshitaahuja.onrender.com/trial/new', {
+        const response = await fetch('https://backend-meritboost.onrender.com/trial/new', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

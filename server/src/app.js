@@ -42,7 +42,7 @@ const nodemailer=require("nodemailer")
 
   
 app.use(cors({
-    origin:["http://localhost:3000","https://lakshitaahuja.netlify.app"]
+    origin:["http://localhost:3000","https://meritboost.netlify.app"]
 }));
 require("./db/conn");
 const port = process.env.PORT || 5000;
