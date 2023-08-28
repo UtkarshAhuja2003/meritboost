@@ -50,6 +50,7 @@ const Trial = () => {
   const [phone, setPhone] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("US");
   const selectedCountry = Countries.find(country => country.code === selectedCountryCode);
+  const [isPosting, setIsPosting] = useState(false);
 
   const handleCountryChange = (event:any) => {
     const newSelectedCountryCode = event.target.value;
@@ -101,8 +102,12 @@ const Trial = () => {
   
 
 const postData = async () => {
+  if (isPosting) {
+    return; // Do nothing if data is already posting
+  }
     const inputsValid = await checkInputs();
     if (inputsValid) {
+      setIsPosting(true);
       try {
         const country=JSON.stringify(selectedCountry);
         console.log(country)
@@ -125,8 +130,8 @@ const postData = async () => {
   
         if (response.ok) {
           console.log('Record created successfully');
-          alert('Successfully Booked  a Trial');
-          navigate("/")
+          alert('Successfully Booked a Trial');
+          navigate("/");
           // Perform any additional logic here
         } else {
           console.error('Failed to create record');
@@ -135,6 +140,8 @@ const postData = async () => {
       } catch (error) {
         console.error('An error occurred:', error);
         alert('An error occurred while communicating with the server.');
+      } finally {
+        setIsPosting(false); // Set isPosting back to false when posting is complete
       }
     }
   };
@@ -241,16 +248,17 @@ let Links: LinkItem[] = [];
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <button
-                type="button"
-                onClick={postData}
-                style={{
-                  boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
-                }}
-                className="bg-primary md:text-[9px] font-light xl:text-[15px] font-font tracking-wider leading-5 text-[#F9F7F7] hover:text-text px-2 py-[10px] rounded-md hover:bg-[#F9F7F7] duration-500"
-              >
-                Confirm Slot
-              </button>
+            <button
+        type="button"
+        onClick={postData}
+        style={{
+          boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+        }}
+        className={`bg-primary md:text-[9px] font-light xl:text-[15px] font-font tracking-wider leading-5 text-[#F9F7F7] hover:text-text px-2 py-[10px] rounded-md hover:bg-[#F9F7F7] duration-500 ${isPosting ? 'cursor-not-allowed opacity-50' : ''}`}
+        disabled={isPosting}
+      >
+        {isPosting ? 'Confirming..' : 'Confirm Slot'}
+      </button>
             </div>
             </div>
         </div>
