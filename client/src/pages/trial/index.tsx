@@ -163,7 +163,7 @@ let Links: LinkItem[] = [];
             <div className="md:flex">
             <div className="md:w-[60%] w-[80%] mx-auto my-4 pb-4">
               <div className="mt-2 md:mt-4 mr-4 md:text-[17px]">Email<span className="text-red-600">*</span></div>
-              <input type="text" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Enter your Email" className="mt-2 h-[34px] md:h-[40px] md:mt-4 p-1 border border-gray-300 rounded" name="email" required/>
+              <input type="text" value={email} onChange={(event)=>{setEmail(event.target.value)}} placeholder="Parent's Email" className="mt-2 h-[34px] md:h-[40px] md:mt-4 p-1 border border-gray-300 rounded" name="email" required/>
             </div>
             <div className="w-[80%] flex mx-auto my-2 pb-4">
             <div className="md:mt-4">
@@ -190,7 +190,7 @@ let Links: LinkItem[] = [];
         value={phone}
         name="phone"
         onChange={(e) => setPhone(e.target.value)}
-        placeholder="Enter Phone Number"
+        placeholder="Parent's Phone Number"
       />
       </div>
     </div>
@@ -198,7 +198,7 @@ let Links: LinkItem[] = [];
             </div>
             <div className="w-[80%] md:w-full flex mx-auto my-4 pb-4">
             <div className=" mt-2 md:mt-4 mr-4 md:text-[17px]">Name<span className="text-red-600">*</span></div>
-              <input type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Enter your Name" className="mt-2 md:mt-4 p-1 border border-gray-300 rounded" name="name" required/>
+              <input type="text" value={name} onChange={(event)=>{setName(event.target.value)}} placeholder="Child's Name" className="mt-2 md:mt-4 p-1 border border-gray-300 rounded" name="name" required/>
             </div>
             <div className="rounded-md w-[80%] md:w-[60%] mx-auto my-4 pb-4">
               <div className="flex">
