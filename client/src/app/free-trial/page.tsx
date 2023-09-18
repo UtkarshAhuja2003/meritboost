@@ -1,18 +1,16 @@
-import Navbar from "../../components/common/navbar"
+'use client'
+import { useState } from "react";
 import { LuGraduationCap } from "react-icons/lu";
 import { BiCalendarAlt } from "react-icons/bi";
 import { FiClock } from "react-icons/fi";
-import {AiFillCaretDown} from "react-icons/ai"
-import Footer from "../../components/common/footer"
-import Science from "../../assets/science.png"
-import Math from "../../assets/math.png"
-import { useState } from "react";
-import Schema from "../../schema/trial"
-import { useNavigate } from "react-router-dom";
-import Countries from "../../config/countries.json"
+import Navbar from "@/components/common/navbar"
+import Footer from "@/components/common/footer"
+import Science from "@/assets/science.png"
+import Math from "@/assets/math.png"
+import Schema from "@/schema/trial"
+import Countries from "@/config/countries.json"
 
 const Trial = () => {
-  const navigate=useNavigate()
   // Get the current and next two days details
 
   function getDayDetails(date: Date, days: string[], months: string[]) {
@@ -131,8 +129,7 @@ const postData = async () => {
         if (response.ok) {
           console.log('Record created successfully');
           alert('Successfully Booked a Trial');
-          navigate("/");
-          // Perform any additional logic here
+          window.location.href = '/';
         } else {
           console.error('Failed to create record');
           alert('An error occurred while creating the record.');
@@ -156,7 +153,7 @@ let Links: LinkItem[] = [];
   return (
     <div>
       <Navbar Links={Links} showFreeTrialButton={false}/>
-      <div className="font-font my-12">
+      <div className="  my-12">
         <div className="md:w-[88%] mx-auto rounded-[15px]">
             <center className="font-bold text-[15px] md:text-[25px] tracking-wide md:mt-2">Book a Free Trial</center>
             <div className="md:w-[70%] mx-auto mt-4">
@@ -206,8 +203,8 @@ let Links: LinkItem[] = [];
               <div className="md:text-[17px]">Choose Your Subject</div>
               </div>
               <div className="flex justify-around mt-4">
-              <img onClick={()=>{setSubject("Science")}} src={Science} alt="Science" className={`w-[45%] ${subject === "Science" ? "bg-white" : ""} rounded-md pb-2 border-4 cursor-pointer`}/>
-              <img onClick={()=>{setSubject("Math")}}  src={Math} alt="Math" className={`w-[45%] ${subject === "Math" ? "bg-white" : ""} pb-2 rounded-md border-4 cursor-pointer`}/>
+              <img onClick={()=>{setSubject("Science")}} src={Science.src} alt="Science" className={`w-[45%] ${subject === "Science" ? "bg-white" : ""} rounded-md pb-2 border-4 cursor-pointer`}/>
+              <img onClick={()=>{setSubject("Math")}}  src={Math.src} alt="Math" className={`w-[45%] ${subject === "Math" ? "bg-white" : ""} pb-2 rounded-md border-4 cursor-pointer`}/>
               </div>
             </div>
             <div className="w-[60%] mx-auto my-4 pb-4">
@@ -254,7 +251,7 @@ let Links: LinkItem[] = [];
         style={{
           boxShadow: '4px 4px 4px 0px rgba(0, 0, 0, 0.25)',
         }}
-        className={`bg-primary md:text-[9px] font-light xl:text-[15px] font-font tracking-wider leading-5 text-[#F9F7F7] hover:text-text px-2 py-[10px] rounded-md hover:bg-[#F9F7F7] duration-500 ${isPosting ? 'cursor-not-allowed opacity-50' : ''}`}
+        className={`bg-primary md:text-[9px] font-light xl:text-[15px]   tracking-widest leading-5 text-[#F9F7F7] hover:text-text px-2 py-[10px] rounded-md hover:bg-[#F9F7F7] duration-500 ${isPosting ? 'cursor-not-allowed opacity-50' : ''}`}
         disabled={isPosting}
       >
         {isPosting ? 'Confirming..' : 'Confirm Slot'}
