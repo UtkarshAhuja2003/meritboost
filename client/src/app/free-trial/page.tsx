@@ -212,7 +212,7 @@ let Links: LinkItem[] = [];
             <div className=" md:text-[17px]">Select Your Grade</div>
                 <div className="grid grid-cols-3 border-2 rounded-md w-[70%] mx-auto mt-4">
                     {grades.map((Grade, index) => (
-                        <span onClick={()=>{setGrade(Grade)}} className={`border-2 ${Grade === grade ? "bg-white" : ""} cursor-pointer text-center`}>{Grade}</span>
+                        <span key={index} onClick={()=>{setGrade(Grade)}} className={`border-2 ${Grade === grade ? "bg-white" : ""} cursor-pointer text-center`}>{Grade}</span>
                       ))}
                 </div>
             </div>
