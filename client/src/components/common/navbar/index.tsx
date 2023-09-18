@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 import { FaBars, FaCalendarAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Logo from "@/assets/logo.png"
@@ -24,7 +25,7 @@ const Navbar = ({Links,showFreeTrialButton}: NavbarProps) => {
           <Link href ="/">
           <div
             className="w-[210px] md:w-[230px] xl:w-[300px] h-auto font-bold text-[26px] md:text-[42px]"
-          ><img src={Logo.src} alt="MeritBoost" /></div>
+          ><Image src={Logo.src} width={Logo.width} height={Logo.height} alt="MeritBoost" /></div>
           </Link>
         </div>
         <div

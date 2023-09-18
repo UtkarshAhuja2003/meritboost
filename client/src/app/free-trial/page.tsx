@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 import { LuGraduationCap } from "react-icons/lu";
 import { BiCalendarAlt } from "react-icons/bi";
 import { FiClock } from "react-icons/fi";
@@ -203,8 +204,8 @@ let Links: LinkItem[] = [];
               <div className="md:text-[17px]">Choose Your Subject</div>
               </div>
               <div className="flex justify-around mt-4">
-              <img onClick={()=>{setSubject("Science")}} src={Science.src} alt="Science" className={`w-[45%] ${subject === "Science" ? "bg-white" : ""} rounded-md pb-2 border-4 cursor-pointer`}/>
-              <img onClick={()=>{setSubject("Math")}}  src={Math.src} alt="Math" className={`w-[45%] ${subject === "Math" ? "bg-white" : ""} pb-2 rounded-md border-4 cursor-pointer`}/>
+              <Image width={Science.width} height={Science.height} onClick={()=>{setSubject("Science")}} src={Science.src} alt="Science" className={`w-[45%] ${subject === "Science" ? "bg-white" : ""} rounded-md pb-2 border-4 cursor-pointer`}/>
+              <Image width={Math.width} height={Math.height} onClick={()=>{setSubject("Math")}}  src={Math.src} alt="Math" className={`w-[45%] ${subject === "Math" ? "bg-white" : ""} pb-2 rounded-md border-4 cursor-pointer`}/>
               </div>
             </div>
             <div className="w-[60%] mx-auto my-4 pb-4">

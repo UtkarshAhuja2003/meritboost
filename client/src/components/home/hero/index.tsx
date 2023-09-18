@@ -1,4 +1,5 @@
 import head from "@/assets/head.svg"
+import Image from "next/image";
 
 const Head = () => {
   return (
@@ -9,7 +10,7 @@ const Head = () => {
                 <div className="md:leading-6 tracking-wider">We prioritize a positive, inclusive learning environment where students freely express themselves, ask questions, and embrace mistakes as growth opportunities. Our celebration of achievements and constructive feedback empower continuous improvement, fostering student success and potential.</div>
             </div>
             <div className="md:w-[40%]">
-                <img src={head.src} alt="head"/>
+                <Image width={head.width} height={head.height} src={head.src} alt="head"/>
             </div>
         </div>
     </div>
