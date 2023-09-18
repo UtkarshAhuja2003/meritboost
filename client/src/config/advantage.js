@@ -1,6 +1,6 @@
-import img1 from "../assets/advantage1.png"
-import img2 from "../assets/advantage2.png"
-import img3 from "../assets/advantage3.png"
+import img1 from "@/assets/advantage1.png"
+import img2 from "@/assets/advantage2.png"
+import img3 from "@/assets/advantage3.png"
 
 export const advantage = [
     {
