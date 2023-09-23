@@ -1,4 +1,5 @@
 import './globals.css'
+import Script from "next/script";
 
 export const metadata = {
   title: 'Merit Boost',
@@ -11,6 +12,15 @@ export default function RootLayout({ children,
 } ) {
   return (
     <html className="bg-bg" lang="en">
+      <!-- Google tag (gtag.js) -->
+<Script async src="https://www.googletagmanager.com/gtag/js?id=G-GXDNP98SJ4"></Script>
+<Script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GXDNP98SJ4');
+</Script>
       <body>
       {children}
       </body>
