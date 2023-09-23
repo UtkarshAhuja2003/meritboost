@@ -9,13 +9,14 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className="bg-bg" lang="en">
-      {/* Google tag (gtag.js) */}
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-GXDNP98SJ4"></Script>
-      <Script>
-        {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GXDNP98SJ4');`}
+      <Script id="gtag" async src="https://www.googletagmanager.com/gtag/js?id=G-GXDNP98SJ4"></Script>
+      <Script id="gtag-config">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-GXDNP98SJ4');
+        `}
       </Script>
       <body>
         {children}
@@ -23,4 +24,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 
